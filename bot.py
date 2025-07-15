@@ -1,10 +1,13 @@
 import os
-from dotenv import load_dotenv
 import discord
 from discord.ext import commands
 
-# .env-Datei laden
-load_dotenv()
+# Nur lokal .env laden
+if os.environ.get("RENDER") != "true":
+    from dotenv import load_dotenv
+    load_dotenv()
+
+# Token aus Umgebungsvariable
 TOKEN = os.getenv("DISCORD_TOKEN")
 
 # Intents konfigurieren
@@ -23,6 +26,13 @@ async def on_ready():
 @bot.command()
 async def hallo(ctx):
     await ctx.send("Hallo! 👋")
+
+# Optional: Webserver starten (für Render)
+try:
+    from keep_alive import keep_alive
+    keep_alive()
+except:
+    pass  # Falls lokal getestet wird ohne keep_alive.py
 
 # Bot starten
 bot.run(TOKEN)
