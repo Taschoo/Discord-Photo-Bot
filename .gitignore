@@ -1,0 +1,48 @@
+# Byte-compiled / optimierte / temporäre Dateien
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtuelle Umgebungen
+venv/
+.env/
+
+# Umgebungskonfig & Secrets
+.env
+*.env
+
+# IDEs
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Pip-Umgebungsdateien
+*.egg-info/
+dist/
+build/
+
+# Jupyter / IPython
+.ipynb_checkpoints/
+
+# Test-/Coverage-Dateien
+htmlcov/
+.tox/
+.coverage
+coverage.xml
+.cache
+.pytest_cache/
+
+# Sonstiges
+*.sqlite3
+*.db
+*.pid
