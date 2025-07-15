@@ -1,17 +1,28 @@
+import os
+from dotenv import load_dotenv
 import discord
 from discord.ext import commands
 
+# .env-Datei laden
+load_dotenv()
+TOKEN = os.getenv("DISCORD_TOKEN")
+
+# Intents konfigurieren
 intents = discord.Intents.default()
-intents.message_content = True  # Wichtig für das Lesen von Nachrichten
+intents.message_content = True
 
-bot = commands.Bot(command_prefix='!', intents=intents)
+# Bot initialisieren
+bot = commands.Bot(command_prefix="!", intents=intents)
 
+# Event: Wenn der Bot bereit ist
 @bot.event
 async def on_ready():
-    print(f'Bot ist online als {bot.user}')
+    print(f"✅ Bot ist online als {bot.user}")
 
+# Beispiel-Befehl
 @bot.command()
 async def hallo(ctx):
-    await ctx.send("Hallo")
+    await ctx.send("Hallo! 👋")
 
-bot.run('DEIN_BOT_TOKEN_HIER')
+# Bot starten
+bot.run(TOKEN)
